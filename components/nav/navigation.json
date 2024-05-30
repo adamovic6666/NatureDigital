@@ -1,0 +1,106 @@
+{
+  "main": [
+    {
+      "label": "Profil",
+      "path": "/user/profile",
+      "icon": "iconUser",
+      "requiredSession": true
+    },
+    {
+      "label": "Meine Fotos",
+      "path": "/user/photos",
+      "icon": "iconPhoto",
+      "requiredSession": true
+    },
+    {
+      "label": "Downloads",
+      "path": "/downloads",
+      "icon": "iconDownloadWhite"
+    },
+    {
+      "label": "Blog",
+      "path": "/blog",
+      "icon": "blogWhite"
+    },
+    {
+      "label": "Presse",
+      "path": "/presse",
+      "icon": "presseMenu"
+    },
+    {
+      "label": "Partners",
+      "path": "/partners",
+      "icon": "partner"
+    },
+    {
+      "label": "Hilfe",
+      "path": "/hilfe",
+      "icon": "iconQuestion"
+    },
+    {
+      "label": "Erste Schritte",
+      "path": "/first-steps",
+      "icon": "iconPerson"
+    },
+    {
+      "label": "Easy language",
+      "path": "/easy-language",
+      "icon": "easy"
+    },
+    { "label": "Barrierefreiheit", "path": "/barrierefreiheit", "icon": "accessibility" },
+    {
+      "label": "Impressum",
+      "path": "",
+      "icon": "iconA",
+      "items": [
+        {
+          "items_label": "Kontakt & Impressum",
+          "items_path": "/kontakt-impressum"
+        },
+        {
+          "items_label": "Datenschutz",
+          "items_path": "/datenschutz"
+        },
+        {
+          "items_label": "Nutzungsbedingungen",
+          "items_path": "/nutzungsbedingungen"
+        },
+        {
+          "items_label": "Was ist Natur.Digital",
+          "items_path": "/was-ist-naturdigital"
+        }
+      ]
+    }
+  ],
+  "secondary": [
+    {
+      "label": "Karte",
+      "path": "/search",
+      "icon": "iconMap"
+    },
+    {
+      "label": "Lexikon",
+      "path": "/lexikon",
+      "icon": "iconList"
+    },
+    {
+      "label": "Nachrichten",
+      "path": "/news",
+      "icon": "iconNews"
+    }
+  ],
+  "footer": {
+    "footerTop": [
+      {
+        "label": "Hilfe",
+        "path": "/hilfe",
+        "icon": "iconHelp"
+      },
+      {
+        "label": "Impressum",
+        "path": "/impressum",
+        "icon": "iconImpres"
+      }
+    ]
+  }
+}

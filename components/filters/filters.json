@@ -1,0 +1,25 @@
+{
+  "main": {
+    "Pflanzen": {
+      "Artengruppe": ["Blütenpflanzen", "Baum/Strauch", "Gras", "Moose", "Farne", "Bärlappgewächse und Schachtelhalme"],
+      "Farbe": ["Red"],
+      "Lebensräume": ["Test", "Test 2"]
+    },
+    "Tiere": {
+      "Artengruppe": ["Blütenpflanzen", "Baum/Strauch", "Gras", "Moose", "Farne", "Bärlappgewächse und Schachtelhalme"],
+      "Farbe": ["Red"],
+      "Lebensräume": ["Test", "Test 2"]
+    },
+    "Pilze und Flechten": {
+      "Artengruppe": ["Blütenpflanzen", "Baum/Strauch", "Gras", "Moose", "Farne", "Bärlappgewächse und Schachtelhalme"],
+      "Farbe": ["Red"],
+      "Lebensräume": ["Test", "Test 2"]
+    },
+    "Lebensräume": {
+      "Artengruppe": ["Blütenpflanzen", "Baum/Strauch", "Gras", "Moose", "Farne", "Bärlappgewächse und Schachtelhalme"],
+      "Farbe": ["Red"],
+      "Lebensräume": ["Test", "Test 2"]
+    },
+    "Geo": ["Areas", "Trails", "POI", "Handschutter", "Karteplanung"]
+  }
+}

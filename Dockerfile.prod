@@ -1,0 +1,72 @@
+ARG NODE_VER=16.19.0-alpine3.16
+
+FROM node:${NODE_VER} as builder
+
+ARG ENV_PATH
+
+WORKDIR /app
+
+COPY yarn.lock ./
+COPY package.json ./
+COPY packages/common ./packages/common
+COPY packages/nature-digital-web ./packages/nature-digital-web
+
+RUN yarn --frozen-lockfile --prefer-offline
+
+COPY .babelrc ./
+COPY .eslintrc.js ./
+COPY tsconfig.json ./
+COPY assets ./assets
+
+ENV NODE_ENV production
+
+RUN find ./packages/nature-digital-web -type f -name ".env.*" -not -name $ENV_PATH -delete
+RUN mv ./packages/nature-digital-web/$ENV_PATH ./packages/nature-digital-web/.env.local
+RUN yarn workspace nature-digital-web build
+
+FROM node:${NODE_VER} as cleanup
+
+ENV NODE_ENV production
+
+WORKDIR /app
+
+COPY --from=builder /app/packages/common/constants ./packages/common/constants
+
+COPY --from=builder /app/packages/nature-digital-web/package.json ./packages/nature-digital-web/
+COPY --from=builder /app/packages/nature-digital-web/next.config.js ./packages/nature-digital-web/
+COPY --from=builder /app/packages/nature-digital-web/.env.local ./packages/nature-digital-web/
+COPY --from=builder /app/packages/nature-digital-web/.next ./packages/nature-digital-web/.next
+COPY --from=builder /app/packages/nature-digital-web/node_modules ./packages/nature-digital-web/node_modules
+COPY --from=builder /app/packages/nature-digital-web/public ./packages/nature-digital-web/public
+
+COPY --from=builder /app/package.json ./
+COPY --from=builder /app/yarn.lock ./
+
+RUN yarn --frozen-lockfile --prefer-offline --production
+
+FROM node:${NODE_VER}
+
+RUN apk add --no-cache dumb-init curl vim
+
+ENV NODE_ENV production
+
+WORKDIR /app
+
+RUN chown -R node:node /app
+
+COPY --from=cleanup --chown=node:node /app/node_modules ./node_modules
+COPY --from=cleanup --chown=node:node /app/packages ./packages
+COPY --from=cleanup --chown=node:node /app/package.json ./
+COPY --from=cleanup --chown=node:node /app/yarn.lock ./
+
+USER node
+
+WORKDIR /app/packages/nature-digital-web
+
+EXPOSE 3000
+
+ENV PORT 3000
+
+ENTRYPOINT ["/usr/bin/dumb-init", "--"]
+
+CMD ["npm", "run", "start"]

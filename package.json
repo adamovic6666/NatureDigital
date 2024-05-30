@@ -1,0 +1,51 @@
+{
+  "name": "nature-digital-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint && stylelint --fix --di '**/*.scss' ",
+    "production-build": "yarn run build && yarn run start"
+  },
+  "dependencies": {
+    "@deck.gl/core": "8.8.27",
+    "@deck.gl/extensions": "8.8.27",
+    "@deck.gl/geo-layers": "8.8.27",
+    "@deck.gl/layers": "8.8.27",
+    "@deck.gl/mesh-layers": "8.8.27",
+    "@deck.gl/react": "8.8.27",
+    "@nature-digital/constants": "1.0.0",
+    "@wry/equality": "0.5.3",
+    "axios": "1.2.4",
+    "next": "13.1.6",
+    "next-auth": "4.19.0",
+    "next-seo": "5.15.0",
+    "@hcaptcha/react-hcaptcha": "1.4.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "7.39.1",
+    "react-player": "2.10.1",
+    "react-virtualized": "9.22.3",
+    "react-wavesurfer.js": "0.0.8",
+    "sharp": "0.31.3",
+    "supercluster": "7.1.5",
+    "swiper": "8.4.5",
+    "swr": "1.3.0",
+    "wavesurfer.js": "6.4.0",
+    "react-slick": "0.29.0",
+    "lodash": "^4.17.20"
+  },
+  "devDependencies": {
+    "@nature-digital/onboarding": "1.0.0",
+    "@nature-digital/web-styles": "1.0.0",
+    "@types/fslightbox-react": "1.4.2",
+    "@types/react-virtualized": "9.21.21",
+    "@types/wavesurfer.js": "6.0.3",
+    "eslint-config-next": "13.1.6",
+    "eslint-import-resolver-typescript": "3.5.2",
+    "eslint-plugin-import": "2.26.0"
+  }
+}
+
